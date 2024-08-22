@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { getProducts, Product } from "./data";
 
 function App() {
-  let productIndex: number = 0;
+  const [productIndex, setProductIndex] = useState(0);
+
   const products: Product[] = getProducts();
 
   function handleButtonClick() {
-    if((productIndex + 1) >= products.length) return;
-    
-    productIndex += 1;
+    if ((productIndex + 1) >= products.length) return;
+
+    setProductIndex(productIndex + 1);
     console.log(`productIndex variable after click the button: ${productIndex}`);
   }
 
